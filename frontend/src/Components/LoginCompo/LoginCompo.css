@@ -1,0 +1,39 @@
+.loginSection{
+    @apply py-[200px]
+}
+
+.loginCol{
+    @apply flex flex-col items-center
+}
+
+.loginCol h1{
+    @apply text-7xl underline underline-offset-8 decoration-[4px]
+}
+
+.loginForm{
+    @apply mt-6 w-[500px]
+}
+
+.loginForm .emailPart input, .loginForm .passwordPart input{
+    @apply w-full py-4 pl-4 mt-4 bg-slate-200 rounded-xl outline-none
+}
+
+.loginForm button{
+    @apply px-10 py-2 mt-4 bg-slate-200 text-2xl rounded-2xl duration-200
+}
+
+.loginForm button:hover{
+    @apply bg-slate-300
+}
+
+.gotoReg{
+    @apply mt-4
+}
+
+.gotoReg a{
+    @apply font-bold text-blue-300 ml-2 duration-200
+}
+
+.gotoReg a:hover{
+    @apply text-blue-600
+}

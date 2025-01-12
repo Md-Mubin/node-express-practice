@@ -1,0 +1,27 @@
+.profileSection{
+    @apply pt-20
+}
+
+.profileSection h1{
+    @apply text-7xl text-center font-bold
+}
+
+.profileCol{
+    @apply mt-10 w-[600px] m-auto
+}
+
+.profileCol li{
+    @apply flex justify-between items-start font-semibold text-2xl mt-2
+}
+
+.profileCol li span{
+    @apply font-normal text-2xl w-[350px]
+}
+
+.logoutButton{
+    @apply px-5 py-2 bg-slate-300 rounded-2xl font-normal text-2xl duration-200 ml-[70%] mt-10
+}
+
+.logoutButton:hover{
+    @apply bg-slate-400
+}

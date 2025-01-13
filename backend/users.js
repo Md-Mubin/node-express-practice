@@ -98,12 +98,7 @@ const users = [
     "password": "AvaGarcia2025",
     "address": "777 Magnolia St, San Francisco, CA",
     "info": "Enjoys photography and blogging."
-  },
-  {
-    "id": 11,
-    "email": "mubin@gmail.com",
-    "password": "123"
   }
-];
+]
 
-module.exports = users;
+module.exports = users

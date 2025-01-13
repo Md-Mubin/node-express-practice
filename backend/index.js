@@ -37,11 +37,9 @@ router.post("/", (req, res) => {
 const usersFilePath = path.join(__dirname, "users.js");
 let allUsers = require(usersFilePath);
 
-// POST route to register a new user
 app.post("/register", (req, res) => {
   const { email, password } = req.body
 
-  // Validation
   if (!email) {
     return res.send({ error: "Email is required" })
   }
@@ -49,17 +47,14 @@ app.post("/register", (req, res) => {
     return res.send({ error: "Password is required" })
   }
 
-  // Check for duplicate email
   const userExists = allUsers.find((user) => user.email === email)
   if (userExists) {
     return res.send({ error: "User already exists" });
   }
 
-  // Add the new user
   const newUser = { id: allUsers.length + 1, email, password }
   allUsers.push(newUser)
 
-  // Update the `user.js` file
   const updatedUsersContent = `const users = ${JSON.stringify(allUsers, null, 2)};\n\nmodule.exports = users;`
   fs.writeFileSync(usersFilePath, updatedUsersContent, "utf8")
 

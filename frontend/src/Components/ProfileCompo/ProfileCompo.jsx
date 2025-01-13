@@ -2,6 +2,7 @@ import React from 'react'
 import './ProfileCompo.css'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
+import { Bounce, toast } from 'react-toastify'
 
 const ProfileCompo = () => {
 
@@ -15,9 +16,19 @@ const ProfileCompo = () => {
     const handleLogout=()=>{
         localStorage.removeItem("loginUser")
         navigate("/")
+        toast.error(`Loged Out`, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce
+        })
     }
 
-    console.log(loginUserSliceData)
     return (
         <>
             <section className='profileSection'>

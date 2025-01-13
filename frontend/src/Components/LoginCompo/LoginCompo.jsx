@@ -31,15 +31,15 @@ const LoginCompo = () => {
         else {
             axios.post("http://localhost:3000", form)
                 .then((response) => {
-                    if (response.data.email === form.email && response.data.password === form.password) {
+                    if (response.data.userData) {
 
                         navigate('/profile')
 
-                        dispatch(userDataReducers(response.data))
+                        dispatch(userDataReducers(response.data.userData))
 
-                        localStorage.setItem("loginUser", JSON.stringify(response.data))
+                        localStorage.setItem("loginUser", JSON.stringify(response.data.userData))
 
-                        toast.success(`Login Successfull!`, {
+                        toast.success(`${response.data.msg}`, {
                             position: "top-right",
                             autoClose: 1000,
                             hideProgressBar: false,

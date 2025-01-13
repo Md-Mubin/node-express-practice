@@ -13,18 +13,34 @@ const RegisterCompo = () => {
         e.preventDefault()
 
         axios.post("http://localhost:3000/register", form)
-            .then((response) => { setError(response.data.massage) },
-                toast.success('New User Created', {
-                    position: "top-right",
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: false,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                    transition: Bounce,
-                }))
+            .then((response) => {
+                if (response.data.error) {
+                    toast.error(`${response.data.error}`, {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                        transition: Bounce,
+                    })
+                }else if(response.data.successMsg){
+                    toast.success(`${response.data.successMsg}`, {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                        transition: Bounce,
+                    })
+                }
+            }
+            )
 
     }
 
